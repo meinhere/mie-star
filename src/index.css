@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        border-color: hsl(var(--border) / 1);
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+    .font-display {
+        font-family: var(--font-serif);
+        font-weight: 500;
+        letter-spacing: -0.01em;
+    }
+}
+
+@layer utilities {
+    /* Brand color utilities */
+    .text-orange {
+        color: #ff6b00;
+    }
+    .bg-orange {
+        background-color: #ff6b00;
+    }
+    .border-orange {
+        border-color: #ff6b00;
+    }
+    .text-yellow {
+        color: #ffd700;
+    }
+    .bg-yellow-brand {
+        background-color: #ffd700;
+    }
+    .border-yellow {
+        border-color: #ffd700;
+    }
+    .text-brown {
+        color: #7a4f1e;
+    }
+    .bg-brown {
+        background-color: #7a4f1e;
+    }
+
+    /* Legacy compat aliases */
+    .text-gold {
+        color: #ffd700;
+    }
+    .bg-gold {
+        background-color: #ffd700;
+    }
+    .border-gold {
+        border-color: #ffd700;
+    }
+    .text-obsidian {
+        color: #3d1f00;
+    }
+    .bg-obsidian {
+        background-color: #3d1f00;
+    }
+    .text-cream {
+        color: #faf7f2;
+    }
+    .bg-cream {
+        background-color: #faf7f2;
+    }
+    .text-cinnabar {
+        color: #ff6b00;
+    }
+    .bg-cinnabar {
+        background-color: #ff6b00;
+    }
+
+    .hairline-gold {
+        background: linear-gradient(
+            90deg,
+            transparent,
+            hsl(var(--gold)),
+            transparent
+        );
+        height: 1px;
+    }
+
+    .noise-bg {
+        background-image: radial-gradient(
+            hsl(var(--foreground) / 0.04) 1px,
+            transparent 1px
+        );
+        background-size: 4px 4px;
+    }
+
+    .kinetic-grid {
+        background-image:
+            linear-gradient(hsl(var(--gold) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--gold) / 0.08) 1px, transparent 1px);
+        background-size: 80px 80px;
+    }
+
+    .mask-fade-b {
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 70%,
+            transparent 100%
+        );
+    }
+}
