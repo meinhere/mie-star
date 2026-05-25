@@ -21,7 +21,9 @@
     "include": [
         "src/components/**/*.js",
         "src/pages/**/*.jsx",
-        "src/Layout.jsx"
+        "src/Layout.jsx",
+        "src/assets/**/*",
+        "images.d.ts"
     ],
     "exclude": [
         "node_modules",

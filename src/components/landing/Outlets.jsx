@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import melawaiBlokM from "../../assets/outlets/melawai-blok-m.jpeg";
 
 const OUTLETS = [
     {
@@ -9,7 +10,7 @@ const OUTLETS = [
     },
     {
         name: "Melawai - Blok M",
-        img: "src/assets/outlets/melawai-blok-m.jpeg",
+        img: melawaiBlokM,
     },
     {
         name: "South Quarter",
