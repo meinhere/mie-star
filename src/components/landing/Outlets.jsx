@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, TrendingUp } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 const OUTLETS = [
     {
@@ -9,7 +9,7 @@ const OUTLETS = [
     },
     {
         name: "Melawai - Blok M",
-        img: "https://media.base44.com/images/public/69e594c805887fc699edc09a/72bd79da5_Screenshot2026-04-20at101316AM.png",
+        img: "src/assets/outlets/melawai-blok-m.jpeg",
     },
     {
         name: "South Quarter",
@@ -38,87 +38,115 @@ const OUTLETS = [
 ];
 
 export default function Outlets() {
+    const [selected, setSelected] = useState(1);
+
     return (
         <section
             id="outlets"
-            className="bg-[#FAF7F2] py-24 md:py-32 overflow-hidden"
+            className="bg-[#3D1F00] py-24 md:py-32 overflow-hidden"
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
-                    <div>
-                        <span className="text-[#FF6B00] text-xs font-bold tracking-[0.3em] uppercase">
-                            Our Footprint
-                        </span>
-                        <h2 className="font-display text-5xl md:text-7xl text-[#3D1F00] mt-4 leading-none">
-                            <span className="text-[#FF6B00]">10 Stores</span>
-                            <br />
-                            <em>Across Jakarta.</em>
-                        </h2>
-                    </div>
-                    <div className="flex gap-4 flex-col sm:flex-row">
-                        <div
-                            className="p-6 rounded-2xl text-white text-center min-w-[150px]"
-                            style={{ background: "#FF6B00" }}
-                        >
-                            <div className="font-display text-4xl font-bold">
-                                10
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-start">
+                    {/* Left - flagship image */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="relative rounded-3xl overflow-hidden col-span-3 order-2 md:order-1"
+                    >
+                        <div className="aspect-[4/5] w-full overflow-hidden rounded-3xl">
+                            <img
+                                src={OUTLETS[selected].img}
+                                alt={OUTLETS[selected].name}
+                                className="h-full w-full object-cover object-center"
+                            />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute left-6 bottom-6 text-white">
+                            <div className="text-xs text-[#FF6B00] font-bold uppercase tracking-widest">
+                                Flagship Store
                             </div>
-                            <div className="text-xs font-bold uppercase tracking-wider mt-1 opacity-90">
-                                Active Outlets
+                            <div className="mt-2 text-2xl md:text-3xl font-bold flex gap-1 items-center">
+                                <MapPin className="w-8 h-8 text-[#FF6B00] flex-shrink-0" />
+                                {OUTLETS[selected].name}
                             </div>
                         </div>
-                        <div
-                            className="p-6 rounded-2xl text-[#3D1F00] text-center min-w-[150px]"
-                            style={{ background: "#FFD700" }}
-                        >
-                            <div className="font-display text-4xl font-bold">
-                                100
-                            </div>
-                            <div className="text-xs font-bold uppercase tracking-wider mt-1 opacity-80">
-                                Target 2026
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </motion.div>
 
-                {/* Outlet photo grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {OUTLETS.map((o, i) => (
-                        <motion.div
-                            key={o.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.07 }}
-                            className={`relative overflow-hidden rounded-2xl group ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
-                        >
-                            <div
-                                className={`${i === 0 ? "aspect-square" : "aspect-video"} overflow-hidden`}
-                            >
-                                <img
-                                    src={o.img}
-                                    alt={o.name}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
+                    {/* Right - content */}
+                    <div className="relative col-span-2 order-1 md:order-2">
+                        <div className="flex justify-end mb-6">
+                            <div className="flex gap-4">
+                                <div className="p-4 rounded-2xl text-white text-center min-w-[120px] bg-[#FF6B00]">
+                                    <div className="font-display text-2xl font-bold">
+                                        10
+                                    </div>
+                                    <div className="text-xs font-bold uppercase tracking-wider mt-1 opacity-90">
+                                        Active Stores
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-2xl text-[#3D1F00] text-center min-w-[120px] bg-[#FFD700]">
+                                    <div className="font-display text-2xl font-bold">
+                                        100
+                                    </div>
+                                    <div className="text-xs font-bold uppercase tracking-wider mt-1 opacity-80">
+                                        Target 2026
+                                    </div>
+                                </div>
                             </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#3D1F00]/80 via-transparent to-transparent" />
-                            <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
-                                <MapPin className="w-3.5 h-3.5 text-[#FFD700] flex-shrink-0" />
-                                <span className="text-white font-bold text-xs md:text-sm truncate">
-                                    {o.name}
+                        </div>
+
+                        <div className="mb-2">
+                            <span className="text-[#FF6B00] text-xs font-bold tracking-[0.3em] uppercase">
+                                Our Footprint
+                            </span>
+                            <div className="font-display text-5xl md:text-7xl text-white">
+                                <div className="flex items-baseline gap-2 md:-mb-3 md:-mt-6">
+                                    <span className="text-[#FF6B00] text-7xl md:text-8xl">
+                                        10
+                                    </span>
+                                    <span>Stores</span>
+                                </div>
+                                <span className="text-5xl md:text-6xl">
+                                    Across Jakarta.
                                 </span>
                             </div>
-                            {o.name.includes("Upcoming") && (
-                                <div className="absolute top-3 right-3 bg-[#FF6B00] text-white text-[10px] font-bold uppercase px-2 py-1 rounded-full">
-                                    Coming Soon
-                                </div>
-                            )}
-                        </motion.div>
-                    ))}
+                        </div>
+
+                        <p className="text-white/80 mb-8">
+                            From neighborhood destinations to lifestyle hubs,
+                            MIE STAR × STAR MOMENT continues expanding across
+                            Jakarta with a scalable multi-brand concept.
+                        </p>
+
+                        <ul className="space-y-1">
+                            {OUTLETS.map((o, i) => (
+                                <li
+                                    key={o.name}
+                                    role="button"
+                                    tabIndex={0}
+                                    onClick={() => setSelected(i)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ")
+                                            setSelected(i);
+                                    }}
+                                    className={`flex items-center gap-4 py-2 border-b border-white/10 cursor-pointer ${selected === i ? "text-[#FF6B00]" : "text-white/90"}`}
+                                >
+                                    <MapPin className="w-5 h-5 text-[#FF6B00] flex-shrink-0" />
+                                    <span
+                                        className={`font-medium ${selected === i ? "font-bold" : ""}`}
+                                    >
+                                        {o.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 {/* Revenue callout */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -141,7 +169,7 @@ export default function Outlets() {
                         <TrendingUp className="w-5 h-5" />
                         Join the Network
                     </a>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );

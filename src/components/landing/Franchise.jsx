@@ -85,7 +85,7 @@ const STEPS = [
     },
 ];
 
-function InvestRow({ label, a, b, c, bold }) {
+function InvestRow({ label, a, b, c, bold = "" }) {
     return (
         <div
             className={`grid grid-cols-4 gap-3 px-5 py-3 text-sm ${bold ? "bg-[#FFD700]/20 font-bold" : ""}`}

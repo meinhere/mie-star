@@ -30,7 +30,11 @@ export default [
             "react-hooks": pluginReactHooks,
         },
         rules: {
-            "no-unused-vars": [
+            "no-unused-vars": "off",
+            "react/jsx-uses-vars": "error",
+            "react/jsx-uses-react": "error",
+            "unused-imports/no-unused-imports": "error",
+            "unused-imports/no-unused-vars": [
                 "warn",
                 {
                     vars: "all",
@@ -39,8 +43,14 @@ export default [
                     argsIgnorePattern: "^_",
                 },
             ],
-            "@typescript-eslint/no-explicit-any": "off",
+            "react/prop-types": "off",
+            "react/react-in-jsx-scope": "off",
+            "react/no-unknown-property": [
+                "error",
+                { ignore: ["cmdk-input-wrapper", "toast-close"] },
+            ],
             "react-hooks/rules-of-hooks": "error",
+            "@typescript-eslint/no-explicit-any": "off",
         },
     },
 ];

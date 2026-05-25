@@ -17,7 +17,7 @@ export default function ContactForm() {
 
     const onChange = (k) => (e) => setData({ ...data, [k]: e.target.value });
 
-    const submit = async (e) => {x
+    const submit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
         await base44.entities.FranchiseInquiry.create(data);
