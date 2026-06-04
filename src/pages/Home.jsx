@@ -11,6 +11,7 @@ import Channels from "../components/landing/Channels";
 import Franchise from "../components/landing/Franchise";
 import ContactForm from "../components/landing/ContactForm";
 import Footer from "../components/landing/Footer";
+import FloatingWhatsApp from "../components/landing/FloatingWhatsApp";
 
 export default function Home() {
     return (
@@ -27,6 +28,7 @@ export default function Home() {
             <Franchise />
             <ContactForm />
             <Footer />
+            <FloatingWhatsApp />
         </div>
     );
 }
