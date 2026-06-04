@@ -83,10 +83,7 @@ export default function Footer() {
                 />
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
-                    <div>
-                        © {new Date().getFullYear()} Mie Star Global × Star
-                        Moment. All rights reserved.
-                    </div>
+                    <div>© 2025 PT Mie Star Global. All rights reserved.</div>
                     <div className="font-display italic text-[#FFD700]/70 text-base">
                         "Every Bite, Every Sip, A Star Moment!"
                     </div>

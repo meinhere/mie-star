@@ -1,28 +1,63 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, CheckCircle2, Camera } from "lucide-react";
-import { base44 } from "@/api/base44Client";
+const initialFormData = {
+    full_name: "",
+    email: "",
+    phone: "",
+    city: "",
+    interest: "combo",
+    message: "",
+};
 
 export default function ContactForm() {
-    const [data, setData] = useState({
-        full_name: "",
-        email: "",
-        phone: "",
-        city: "",
-        interest: "combo",
-        message: "",
-    });
+    const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL;
+    const [data, setData] = useState(initialFormData);
     const [submitting, setSubmitting] = useState(false);
     const [done, setDone] = useState(false);
+    const [error, setError] = useState("");
 
     const onChange = (k) => (e) => setData({ ...data, [k]: e.target.value });
 
     const submit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
-        await base44.entities.FranchiseInquiry.create(data);
-        setSubmitting(false);
-        setDone(true);
+        setError("");
+
+        try {
+            if (!contactApiUrl) {
+                throw new Error(
+                    "VITE_CONTACT_API_URL belum diisi di environment frontend.",
+                );
+            }
+
+            const response = await fetch(contactApiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+                throw new Error(
+                    payload?.error || "Gagal mengirim inquiry. Coba lagi.",
+                );
+            }
+
+            setDone(true);
+            setData(initialFormData);
+        } catch (submitError) {
+            setError(
+                submitError instanceof Error
+                    ? submitError.message
+                    : "Gagal mengirim inquiry. Coba lagi.",
+            );
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -140,6 +175,11 @@ export default function ContactForm() {
                                     <h3 className="font-display text-3xl text-[#3D1F00] mb-6">
                                         Franchise Inquiry
                                     </h3>
+                                    {error ? (
+                                        <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                                            {error}
+                                        </div>
+                                    ) : null}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         <Field
                                             label="Full Name"
