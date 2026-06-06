@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { pushDataLayerEvent } from "@/lib/dataLayer";
 import {
     Check,
     ArrowRight,
@@ -149,7 +150,16 @@ export default function Franchise() {
                         return (
                             <motion.button
                                 key={p.id}
-                                onClick={() => setSelected(p.id)}
+                                onClick={() => {
+                                    setSelected(p.id);
+                                    pushDataLayerEvent(
+                                        "franchise_package_select",
+                                        {
+                                            package_id: p.id,
+                                            package_name: p.name,
+                                        },
+                                    );
+                                }}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -281,6 +291,13 @@ export default function Franchise() {
                         </div>
                         <a
                             href="#contact"
+                            onClick={() =>
+                                pushDataLayerEvent("cta_click", {
+                                    location: "franchise",
+                                    label: "Claim Program Slot",
+                                    target: "#contact",
+                                })
+                            }
                             className="inline-flex items-center gap-2 bg-[#FF6B00] text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-[#e55e00] transition"
                         >
                             Claim Program Slot{" "}

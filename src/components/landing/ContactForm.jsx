@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, CheckCircle2, Camera } from "lucide-react";
+import { pushDataLayerEvent } from "@/lib/dataLayer";
 const initialFormData = {
     full_name: "",
     email: "",
@@ -23,6 +24,14 @@ export default function ContactForm() {
         e.preventDefault();
         setSubmitting(true);
         setError("");
+
+        pushDataLayerEvent("contact_form_submit", {
+            full_name: data.full_name,
+            email: data.email,
+            phone: data.phone,
+            city: data.city,
+            interest: data.interest,
+        });
 
         try {
             if (!contactApiUrl) {
@@ -243,6 +252,12 @@ export default function ContactForm() {
                                     <button
                                         type="submit"
                                         disabled={submitting}
+                                        onClick={() =>
+                                            pushDataLayerEvent("cta_click", {
+                                                location: "contact_form",
+                                                label: "Submit Franchise Inquiry",
+                                            })
+                                        }
                                         className="w-full inline-flex items-center justify-center gap-3 text-white py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:opacity-90 transition disabled:opacity-50"
                                         style={{ background: "#FF6B00" }}
                                     >

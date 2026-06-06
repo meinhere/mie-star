@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import { pushDataLayerEvent } from "@/lib/dataLayer";
 
 export default function Hero() {
-    const [hover, setHover] = useState(null);
+    const [hover, setHover] = useState(
+        /** @type {"mie" | "star" | null} */ (null),
+    );
 
     const mieWidth = hover === "mie" ? "60%" : hover === "star" ? "40%" : "50%";
     const starWidth =
@@ -110,6 +113,13 @@ export default function Hero() {
                     <div className="mt-8">
                         <a
                             href="#menu"
+                            onClick={() =>
+                                pushDataLayerEvent("cta_click", {
+                                    location: "hero",
+                                    label: "Explore Flavors",
+                                    target: "#menu",
+                                })
+                            }
                             className="group inline-flex items-center gap-3 bg-[#3D1F00] text-white px-7 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-[#3D1F00]/80 transition shadow-xl"
                         >
                             Explore Flavors
@@ -145,6 +155,13 @@ export default function Hero() {
                     <div className="mt-8 flex md:justify-end">
                         <a
                             href="#franchise"
+                            onClick={() =>
+                                pushDataLayerEvent("cta_click", {
+                                    location: "hero",
+                                    label: "Own a Franchise",
+                                    target: "#franchise",
+                                })
+                            }
                             className="group inline-flex items-center gap-3 bg-[#3D1F00] text-[#FFD700] px-7 py-3.5 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-[#3D1F00]/80 transition shadow-xl"
                         >
                             Own a Franchise

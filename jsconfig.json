@@ -23,7 +23,8 @@
         "src/pages/**/*.jsx",
         "src/Layout.jsx",
         "src/assets/**/*",
-        "images.d.ts"
+        "images.d.ts",
+        "window.d.ts"
     ],
     "exclude": [
         "node_modules",

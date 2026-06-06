@@ -1,4 +1,5 @@
 import React from "react";
+import { pushDataLayerEvent } from "@/lib/dataLayer";
 
 const DEFAULT_PHONE = "6282119998808";
 
@@ -28,6 +29,13 @@ export default function FloatingWhatsApp({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hubungi kami lewat WhatsApp"
+                onClick={() =>
+                    pushDataLayerEvent("cta_click", {
+                        location: "floating_whatsapp",
+                        label: "WhatsApp Contact",
+                        target: href,
+                    })
+                }
                 className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_rgba(37,211,102,0.5)] transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
             >
                 <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366]/40" />
