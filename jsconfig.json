@@ -23,7 +23,7 @@
         "src/pages/**/*.jsx",
         "src/Layout.jsx",
         "src/assets/**/*",
-        "images.d.ts",
+        "src/*.d.ts",
         "window.d.ts"
     ],
     "exclude": [

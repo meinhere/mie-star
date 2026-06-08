@@ -1,6 +1,10 @@
-#env
+# Environment variables
 .env
 .env.*
+
+# Cloudflare Workers environment variables
+cloudflare_worker/.dev.vars*
+cloudflare_worker/.wrangler*
 
 # Logs
 logs
