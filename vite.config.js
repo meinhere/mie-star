@@ -4,11 +4,13 @@ import path from "path";
 
 import { cloudflare } from "@cloudflare/vite-plugin";
 
-export default defineConfig({
-    plugins: [react(), cloudflare()],
+export default defineConfig(({ command }) => ({
+    plugins: [react(), command === "build" ? cloudflare() : null].filter(
+        Boolean,
+    ),
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src"),
         },
     },
-});
+}));

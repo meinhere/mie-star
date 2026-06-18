@@ -20,10 +20,10 @@ const OUTLETS = [
         name: "Tanjung Duren",
         img: "https://media.base44.com/images/public/69e594c805887fc699edc09a/eda37f95a_Screenshot2026-04-20at101329AM.png",
     },
-    {
-        name: "Atma Jaya",
-        img: "https://media.base44.com/images/public/69e594c805887fc699edc09a/d44bd5168_Screenshot2026-04-20at101337AM.png",
-    },
+    // {
+    //     name: "Atma Jaya",
+    //     img: "https://media.base44.com/images/public/69e594c805887fc699edc09a/d44bd5168_Screenshot2026-04-20at101337AM.png",
+    // },
     {
         name: "Fatmawati",
         img: "https://media.base44.com/images/public/69e594c805887fc699edc09a/6e26ca2b8_Screenshot2026-04-21at20059PM.png",
