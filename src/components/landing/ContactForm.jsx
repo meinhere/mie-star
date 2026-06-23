@@ -217,13 +217,17 @@ export default function ContactForm() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-[11px] uppercase tracking-widest text-[#3D1F00]/50 font-bold mb-2">
+                                        <label
+                                            htmlFor="interest"
+                                            className="block text-[11px] uppercase tracking-widest text-[#3D1F00]/50 font-bold mb-2"
+                                        >
                                             I'm interested in
                                         </label>
                                         <select
                                             value={data.interest}
                                             onChange={onChange("interest")}
                                             className="w-full bg-[#FAF7F2] border-2 border-[#3D1F00]/10 text-[#3D1F00] rounded-xl px-4 py-3 focus:outline-none focus:border-[#FF6B00] font-semibold"
+                                            id="interest"
                                         >
                                             <option value="mie">
                                                 Mie Star Only — Rp 235 jt
@@ -279,12 +283,16 @@ export default function ContactForm() {
 function Field({ label, ...rest }) {
     return (
         <div>
-            <label className="block text-[11px] uppercase tracking-widest text-[#3D1F00]/50 font-bold mb-2">
+            <label
+                htmlFor={label.toLowerCase().replace(/\s+/g, "-")}
+                className="block text-[11px] uppercase tracking-widest text-[#3D1F00]/50 font-bold mb-2"
+            >
                 {label}
             </label>
             <input
                 {...rest}
                 className="w-full bg-[#FAF7F2] border-2 border-[#3D1F00]/10 text-[#3D1F00] rounded-xl px-4 py-3 focus:outline-none focus:border-[#FF6B00] font-semibold placeholder:text-[#3D1F00]/30"
+                id={label.toLowerCase().replace(/\s+/g, "-")}
             />
         </div>
     );
