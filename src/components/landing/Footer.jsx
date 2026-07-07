@@ -1,4 +1,5 @@
 import React from "react";
+import logoMieStar from "@/assets/logo_miestar.png";
 
 export default function Footer() {
     return (
@@ -11,15 +12,9 @@ export default function Footer() {
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-4 mb-5">
                             <img
-                                src="https://media.base44.com/images/public/user_69e210d93ba76a81dd34ba72/7352662c1_LOGOMIESTAR_Logo1.png"
+                                src={logoMieStar}
                                 alt="Mie Star"
                                 className="h-12 w-auto"
-                            />
-                            <div className="h-8 w-px bg-[#FF6B00]/50" />
-                            <img
-                                src="https://media.base44.com/images/public/69e594c805887fc699edc09a/a08a6ad51_StarMomentCoffeecha-logoblack-02.png"
-                                alt="Star Moment"
-                                className="h-10 w-auto brightness-0 invert"
                             />
                         </div>
                         <p className="text-white/60 text-sm max-w-md leading-relaxed">

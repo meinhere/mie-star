@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { pushDataLayerEvent } from "@/lib/dataLayer";
+import logoMieStar from "@/assets/logo_miestar.png";
 
 export default function Hero() {
-    const [hover, setHover] = useState(
-        /** @type {"mie" | "star" | null} */ (null),
-    );
-
-    const mieWidth = hover === "mie" ? "60%" : hover === "star" ? "40%" : "50%";
-    const starWidth =
-        hover === "star" ? "60%" : hover === "mie" ? "40%" : "50%";
-
     return (
         <section
             id="top"
@@ -20,32 +13,16 @@ export default function Hero() {
             {/* Split canvas */}
             <div className="absolute inset-0 flex">
                 <motion.div
-                    animate={{ width: mieWidth }}
+                    animate={{ width: "100%" }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="relative"
                     style={{
                         background:
                             "linear-gradient(135deg, #FF6B00 0%, #e55e00 100%)",
                     }}
-                    onMouseEnter={() => setHover("mie")}
-                    onMouseLeave={() => setHover(null)}
                 >
                     <div className="absolute inset-0 noise-bg opacity-20" />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#3D1F00]/60" />
-                </motion.div>
-                <motion.div
-                    animate={{ width: starWidth }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative"
-                    style={{
-                        background:
-                            "linear-gradient(135deg, #FFD700 0%, #FFA500 100%)",
-                    }}
-                    onMouseEnter={() => setHover("star")}
-                    onMouseLeave={() => setHover(null)}
-                >
-                    <div className="absolute inset-0 noise-bg opacity-10" />
-                    <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#3D1F00]/40" />
                 </motion.div>
             </div>
 
@@ -96,7 +73,7 @@ export default function Hero() {
                 >
                     <div className="mb-6">
                         <img
-                            src="https://media.base44.com/images/public/user_69e210d93ba76a81dd34ba72/7352662c1_LOGOMIESTAR_Logo1.png"
+                            src={logoMieStar}
                             alt="Mie Star"
                             className="h-20 md:h-28 w-auto drop-shadow-2xl"
                         />
@@ -128,8 +105,8 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Star Moment side */}
-                <motion.div
+                {/* Star Moment hide */}
+                {/* <motion.div
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -168,7 +145,7 @@ export default function Hero() {
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
                         </a>
                     </div>
-                </motion.div>
+                </motion.div> */}
             </div>
 
             {/* Scroll indicator */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoMieStar from "@/assets/logo_miestar.png";
 
 const LINKS = [
     { label: "Brand", href: "#brand" },
@@ -37,15 +38,9 @@ export default function Navbar() {
                     className="flex items-center gap-3 flex-shrink-0"
                 >
                     <img
-                        src="https://media.base44.com/images/public/user_69e210d93ba76a81dd34ba72/7352662c1_LOGOMIESTAR_Logo1.png"
+                        src={logoMieStar}
                         alt="Mie Star"
                         className="h-11 w-auto"
-                    />
-                    <div className="h-8 w-px bg-[#FF6B00]/50" />
-                    <img
-                        src="https://media.base44.com/images/public/69e594c805887fc699edc09a/a08a6ad51_StarMomentCoffeecha-logoblack-02.png"
-                        alt="Star Moment"
-                        className="h-9 w-auto brightness-0 invert"
                     />
                 </a>
 

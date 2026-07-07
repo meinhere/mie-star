@@ -28,37 +28,37 @@ const PACKAGES = [
             "Royalty hanya 5%",
         ],
     },
-    {
-        id: "combo",
-        name: "Mie Star + Star Moment",
-        subtitle: "Dual-brand flagship",
-        featured: true,
-        normal: "398.000.000",
-        program: "320.000.000",
-        saving: "78 juta",
-        color: "#3D1F00",
-        highlights: [
-            "Franchise Fee GRATIS 3 tahun",
-            "Dual-brand synergy & cross-selling",
-            "Equipment & desain support",
-            "Bahan baku awal lengkap",
-        ],
-    },
-    {
-        id: "star",
-        name: "Star Moment",
-        subtitle: "Beverage-only kiosk",
-        normal: "181.000.000",
-        program: "128.000.000",
-        saving: "60 juta",
-        color: "#7A4F1E",
-        highlights: [
-            "Franchise Fee GRATIS 3 tahun",
-            "Low CAPEX, high traffic potential",
-            "Coffee & milk tea SOP lengkap",
-            "Support dari central kitchen",
-        ],
-    },
+    // {
+    //     id: "combo",
+    //     name: "Mie Star + Star Moment",
+    //     subtitle: "Dual-brand flagship",
+    //     featured: true,
+    //     normal: "398.000.000",
+    //     program: "320.000.000",
+    //     saving: "78 juta",
+    //     color: "#3D1F00",
+    //     highlights: [
+    //         "Franchise Fee GRATIS 3 tahun",
+    //         "Dual-brand synergy & cross-selling",
+    //         "Equipment & desain support",
+    //         "Bahan baku awal lengkap",
+    //     ],
+    // },
+    // {
+    //     id: "star",
+    //     name: "Star Moment",
+    //     subtitle: "Beverage-only kiosk",
+    //     normal: "181.000.000",
+    //     program: "128.000.000",
+    //     saving: "60 juta",
+    //     color: "#7A4F1E",
+    //     highlights: [
+    //         "Franchise Fee GRATIS 3 tahun",
+    //         "Low CAPEX, high traffic potential",
+    //         "Coffee & milk tea SOP lengkap",
+    //         "Support dari central kitchen",
+    //     ],
+    // },
 ];
 
 const STEPS = [
@@ -127,24 +127,57 @@ export default function Franchise() {
                             <em className="text-[#FFD700]">star moment.</em>
                         </h2>
                     </motion.div>
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="lg:col-span-5 text-white/70 text-lg leading-relaxed self-end"
+                        transition={{ duration: 0.6 }}
+                        className={`text-left relative p-8 rounded-3xl border-2 transition-all lg:col-span-5`}
+                        style={{
+                            background: "rgba(255,255,255,0.05)",
+                            borderColor: "rgba(255,255,255,0.12)",
+                        }}
                     >
-                        Gabung sebagai mitra Mie Star × Star Moment. Deposit Rp
-                        2.000.000 untuk kunci slot 20 mitra pertama —{" "}
-                        <span className="text-[#FFD700] font-bold">
-                            fully refundable
-                        </span>
-                        .
-                    </motion.p>
+                        <div
+                            className={`absolute -top-3 left-8 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold bg-[#FFD700] text-[#3D1F00]`}
+                        >
+                            Most Popular
+                        </div>
+                        <div
+                            className={`text-xs font-bold uppercase tracking-widest text-white/70`}
+                        >
+                            {PACKAGES[0].subtitle}
+                        </div>
+                        <div className="font-display text-3xl text-white mb-6">
+                            {PACKAGES[0].name}
+                        </div>
+                        <div className="mb-6">
+                            <div className="text-xs line-through text-white/30">
+                                Rp {PACKAGES[0].normal}
+                            </div>
+                            <div className="font-display text-4xl text-white leading-none mt-1">
+                                Rp {PACKAGES[0].program}
+                            </div>
+                            <div className="text-xs mt-2 font-bold text-[#FFD700]">
+                                Potongan {PACKAGES[0].saving}
+                            </div>
+                        </div>
+                        <ul className="space-y-2.5">
+                            {PACKAGES[0].highlights.map((h) => (
+                                <li
+                                    key={h}
+                                    className="flex items-start gap-2 text-sm text-white/80"
+                                >
+                                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#FFD700]" />
+                                    <span>{h}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
                 </div>
 
                 {/* Packages */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
                     {PACKAGES.map((p, i) => {
                         const isSelected = selected === p.id;
                         return (
@@ -214,7 +247,7 @@ export default function Franchise() {
                             </motion.button>
                         );
                     })}
-                </div>
+                </div> */}
 
                 {/* Breakdown table */}
                 <motion.div

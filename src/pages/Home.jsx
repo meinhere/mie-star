@@ -21,7 +21,6 @@ export default function Home() {
             <Marquee />
             <BrandStory />
             <MenuShowcase />
-            <StarMomentSection />
             <BrandStrength />
             <Outlets />
             <Channels />

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import menuShowcaseImage from "@/assets/menu_showcase.jpeg";
 
 export default function MenuShowcase() {
     return (
@@ -23,12 +24,12 @@ export default function MenuShowcase() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="rounded-3xl overflow-hidden shadow-2xl border border-[#FF6B00]/20"
+                    className="rounded-3xl overflow-hidden shadow-2xl border border-[#FF6B00]/20 w-100 h-100"
                 >
                     <img
-                        src="https://media.base44.com/images/public/69e594c805887fc699edc09a/ccea9bc71_Screenshot2026-04-21at15225PM.png"
+                        src={menuShowcaseImage}
                         alt="Mie Star Menu"
-                        className="w-full h-auto"
+                        className="w-full h-auto object-cover block"
                     />
                 </motion.div>
             </div>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import melawaiBlokM from "../../assets/outlets/melawai-blok-m.jpeg";
-import petraOfficeTower from "../../assets/outlets/petra-office-tower.png";
-import southQuarter from "../../assets/outlets/south-quarter.png";
-import tanjungDuren from "../../assets/outlets/tanjung-duren.png";
-import fatmawati from "../../assets/outlets/fatmawati.png";
-import suryaKencana from "../../assets/outlets/surya-kencana.png";
-import jembatanLima from "../../assets/outlets/jembatan-lima.png";
+import melawaiBlokM from "@/assets/outlets/melawai-blok-m.jpeg";
+import petraOfficeTower from "@/assets/outlets/petra-office-tower.png";
+import southQuarter from "@/assets/outlets/south-quarter.png";
+import tanjungDuren from "@/assets/outlets/tanjung-duren.png";
+import fatmawati from "@/assets/outlets/fatmawati.png";
+import suryaKencana from "@/assets/outlets/surya-kencana.png";
+import jembatanLima from "@/assets/outlets/jembatan-lima.png";
 
 const OUTLETS = [
     {
@@ -83,7 +83,7 @@ export default function Outlets() {
                             <div className="flex gap-4">
                                 <div className="p-4 rounded-2xl text-white text-center min-w-[120px] bg-[#FF6B00]">
                                     <div className="font-display text-2xl font-bold">
-                                        9
+                                        7
                                     </div>
                                     <div className="text-xs font-bold uppercase tracking-wider mt-1 opacity-90">
                                         Active Stores
@@ -107,7 +107,7 @@ export default function Outlets() {
                             <div className="font-display text-5xl md:text-7xl text-white">
                                 <div className="flex items-baseline gap-2 md:-mb-3 md:-mt-6">
                                     <span className="text-[#FF6B00] text-7xl md:text-8xl">
-                                        9
+                                        7
                                     </span>
                                     <span>Stores</span>
                                 </div>

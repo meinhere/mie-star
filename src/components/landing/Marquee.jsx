@@ -3,9 +3,7 @@ import React from "react";
 const ITEMS = [
     "Every Bite A Star Moment",
     "Bold Flavor",
-    "Where Coffee Meets Chá",
     "Autentik Indonesia",
-    "Sip Your Moment",
     "Daily Escape",
     "Bumbu Asli",
 ];
