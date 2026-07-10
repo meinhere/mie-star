@@ -35,7 +35,42 @@ export default function Hero() {
                     ease: [0.16, 1, 0.3, 1],
                     delay: 0.3,
                 }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
+                className="absolute left-3/4 top-1/3 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
+            >
+                <div className="relative w-28 h-28 md:w-40 md:h-40 flex items-center justify-center">
+                    <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                        className="absolute inset-0 rounded-full border-2 border-white/40"
+                    />
+                    <motion.div
+                        animate={{ rotate: -360 }}
+                        transition={{
+                            duration: 50,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                        className="absolute inset-3 rounded-full border border-white/20"
+                    />
+                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#3D1F00] flex items-center justify-center shadow-[0_0_60px_rgba(61,31,0,0.5)]">
+                        <Star className="w-7 h-7 md:w-10 md:h-10 text-[#FFD700] fill-[#FFD700]" />
+                    </div>
+                </div>
+            </motion.div>
+
+            <motion.div
+                initial={{ scale: 0, rotate: -90 }}
+                animate={{ scale: 0.55, rotate: 0 }}
+                transition={{
+                    duration: 1.2,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 0.3,
+                }}
+                className="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
             >
                 <div className="relative w-28 h-28 md:w-40 md:h-40 flex items-center justify-center">
                     <motion.div
@@ -63,7 +98,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Content */}
-            <div className="relative z-10 min-h-[calc(100vh-5rem)] grid grid-cols-1 md:grid-cols-2">
+            <div className="relative z-10 min-h-[calc(100vh-5rem)] grid grid-cols-1 mx-auto max-w-7xl">
                 {/* Mie Star side */}
                 <motion.div
                     initial={{ opacity: 0, x: -40 }}
@@ -75,7 +110,7 @@ export default function Hero() {
                         <img
                             src={logoMieStar}
                             alt="Mie Star"
-                            className="h-20 md:h-28 w-auto drop-shadow-2xl"
+                            className="h-20 md:h-28 lg:h-40 w-auto drop-shadow-2xl"
                         />
                     </div>
                     <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
@@ -83,7 +118,7 @@ export default function Hero() {
                         <br />
                         <em>A Star Moment.</em>
                     </h1>
-                    <p className="mt-5 text-base md:text-lg text-white/90 max-w-md font-semibold drop-shadow">
+                    <p className="mt-5 text-base md:text-lg text-white/90 font-semibold drop-shadow">
                         Bold flavor, everyday moment. Mie autentik Indonesia —
                         hangat, konsisten, dan selalu bisa diandalkan.
                     </p>

@@ -119,8 +119,8 @@ export default function Outlets() {
 
                         <p className="text-white/80 mb-8">
                             From neighborhood destinations to lifestyle hubs,
-                            MIE STAR × STAR MOMENT continues expanding across
-                            Jakarta with a scalable multi-brand concept.
+                            MIE STAR continues expanding across Jakarta with a
+                            scalable multi-brand concept.
                         </p>
 
                         <ul className="space-y-1">

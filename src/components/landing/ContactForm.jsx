@@ -229,13 +229,6 @@ export default function ContactForm() {
                                             className="w-full bg-[#FAF7F2] border-2 border-[#3D1F00]/10 text-[#3D1F00] rounded-xl px-4 py-3 focus:outline-none focus:border-[#FF6B00] font-semibold"
                                             id="interest"
                                         >
-                                            <option value="mie">
-                                                Mie Star Only — Rp 235 jt
-                                            </option>
-                                            <option value="combo">
-                                                Mie Star + Star Moment — Rp 320
-                                                jt
-                                            </option>
                                             <option value="star">
                                                 Star Moment Only — Rp 128 jt
                                             </option>
